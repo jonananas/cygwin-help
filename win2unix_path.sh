@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $1 | sed "s/\\\/\//g"
+cygpath -u $1

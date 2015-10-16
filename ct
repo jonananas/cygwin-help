@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use IO::File;
+
+my $cmd = 'cleartool ' .  join(" ", @ARGV);
+
+my $ct = IO::File->new("$cmd |");
+
+unless(defined $ct) {
+  die "Failed to execute cleartool: $!\n";
+}
+
+$ct->autoflush(1);
+
+while(<$ct>) {  
+  s|[\r\n]+$||s;  # fullchomp
+  s|\\|/|g;
+  print $_, "\n";
+}
+ 
