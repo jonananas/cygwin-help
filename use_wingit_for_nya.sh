@@ -1,3 +1,3 @@
 #!/bin/bash
 
-if [[ `pwd` =~ .*nya/nya/git/nya.* ]] ; then wingit "$@"; else cgit "$@"; fi
+if [[ `pwd` =~ .*nya/nya/git.* || `pwd` =~ .*nya/nya-master/git.* ]] ; then wingit "$@"; else cgit "$@"; fi
